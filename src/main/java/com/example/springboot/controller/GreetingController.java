@@ -27,14 +27,14 @@ public class GreetingController {
 	@Profile(value = "foo")
 	@RequestMapping("/foo/greeting")
 	public Greeting fooGreeting(@RequestParam(value = "name", defaultValue = "Foo World") String name) {
-		logger.debug(activeProfile);
+		logger.debug("activeProfile=" + activeProfile);
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 
 	@Profile(value = "bar")
 	@RequestMapping("/bar/greeting")
 	public Greeting barGreeting(@RequestParam(value = "name", defaultValue = "Bar World") String name) {
-		logger.debug(activeProfile);
+		logger.debug("activeProfile=" + activeProfile);
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 }
